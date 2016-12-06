@@ -84,6 +84,7 @@ if __name__ == '__main__':
     print a3 == a4
     print b3 == b4
 
+    print 'Array generation', timeit.timeit('generate_random_list(TEST_LIST_SIZE)', 'from __main__ import generate_random_list, TEST_LIST_SIZE', number=10000)
     print 'Naive simple', timeit.timeit('naive_simple_test()', 'from __main__ import naive_simple_test', number=10000)
     print 'Naive smart', timeit.timeit('naive_smart_test()', 'from __main__ import naive_smart_test', number=10000)
     print 'Filter single', timeit.timeit('filter_single_test()', 'from __main__ import filter_single_test', number=10000)
