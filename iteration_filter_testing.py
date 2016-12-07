@@ -3,7 +3,8 @@
 import random
 import timeit
 
-TEST_LIST_SIZE = 10000
+TEST_LIST_SIZE = 100000
+NUM_ITERATIONS = 1000
 
 def generate_random_list(size):
     return random.sample(xrange(size), size)
@@ -72,6 +73,7 @@ if __name__ == '__main__':
 
     a4, b4 = filter_lambda_single(l, 100), filter_lambda_single(l, 200)
 
+    print 'Comparison tests'
     print a == a1
     print b == b1
 
@@ -84,9 +86,10 @@ if __name__ == '__main__':
     print a3 == a4
     print b3 == b4
 
-    print 'Array generation', timeit.timeit('generate_random_list(TEST_LIST_SIZE)', 'from __main__ import generate_random_list, TEST_LIST_SIZE', number=10000)
-    print 'Naive simple', timeit.timeit('naive_simple_test()', 'from __main__ import naive_simple_test', number=10000)
-    print 'Naive smart', timeit.timeit('naive_smart_test()', 'from __main__ import naive_smart_test', number=10000)
-    print 'Filter single', timeit.timeit('filter_single_test()', 'from __main__ import filter_single_test', number=10000)
-    print 'Filter multiple', timeit.timeit('filter_multiple_test()', 'from __main__ import filter_multiple_test', number=10000)
-    print 'Filter lambda single', timeit.timeit('filter_lambda_single_test()', 'from __main__ import filter_lambda_single_test', number=10000)
+    print 'Timing tests'
+    print 'Array generation', timeit.timeit('generate_random_list(TEST_LIST_SIZE)', 'from __main__ import generate_random_list, TEST_LIST_SIZE', number=NUM_ITERATIONS)
+    print 'Naive simple', timeit.timeit('naive_simple_test()', 'from __main__ import naive_simple_test', number=NUM_ITERATIONS)
+    print 'Naive smart', timeit.timeit('naive_smart_test()', 'from __main__ import naive_smart_test', number=NUM_ITERATIONS)
+    print 'Filter single', timeit.timeit('filter_single_test()', 'from __main__ import filter_single_test', number=NUM_ITERATIONS)
+    print 'Filter multiple', timeit.timeit('filter_multiple_test()', 'from __main__ import filter_multiple_test', number=NUM_ITERATIONS)
+    print 'Filter lambda single', timeit.timeit('filter_lambda_single_test()', 'from __main__ import filter_lambda_single_test', number=NUM_ITERATIONS)
